@@ -4,7 +4,7 @@
 #   Requires the following bind mounts in Portainer:                       #
 #   /homeserver_video_reargarden > /mnt/homeserver_video_reargarden (sync) #
 #   /homepi_opt > /opt                                                     #
-#   entrypoint.sh contains the inotify code and daily folder tidy          #
+#   entrypoint.sh ???????????????????????????????????????????????????????  #
 #   last updated 13/09/2025                                                #
 ############################################################################
 
@@ -28,7 +28,6 @@
 # needs modification to allow for alpine ilo ubuntu eg apk & file containing cron...
 
 FROM alpine:latest
-MAINTAINER mjuwx@outlook.com
 
 RUN mkdir /homeserver_video_reargarden
 RUN apk add tzdata coreutils --no-cache
