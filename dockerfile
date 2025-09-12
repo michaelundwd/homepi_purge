@@ -33,7 +33,7 @@ RUN mkdir /homeserver_video_reargarden
 RUN apk add tzdata coreutils --no-cache
 
 # Add crontab file in the cron directory
-ADD opt/purge/purge-schedule /etc/cron.d/hello-cron
+ADD /opt/purge/purge-schedule /etc/cron.d/hello-cron
 
 # Give execution rights on the cron job
 RUN chmod 0644 /etc/cron.d/hello-cron
