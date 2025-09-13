@@ -1,30 +1,25 @@
 
 ############################################################################
-#   Docker image that purges out-dated videos on homeserver                #
+#   Docker image to purge out-dated videos on homeserver & all .txt files  #
 #   Requires the following bind mounts in Portainer:                       #
-#   /homeserver_video_reargarden > /mnt/homeserver_video_reargarden (sync) #
+#   /homepi_home_mju_videos > /home/mju/Videos                             #
 #   /homepi_opt > /opt                                                     #
-#   entrypoint.sh ???????????????????????????????????????????????????????  #
+#   /homeserver_video_reargarden > /mnt/homeserver_video_reargarden (sync) #
+#   entrypoint.sh calls the purge/startup-script.sh that sets the schedule #
 #   last updated 13/09/2025                                                #
 ############################################################################
 
-##############################################################
-# new version for purge alone
-##############################################################
-
 FROM alpine:latest
 
-RUN mkdir /homepi_home_mju_videos /homeserver_video_reargarden homepi_opt
+RUN mkdir /homepi_home_mju_videos /homepi_opt /homeserver_video_reargarden 
 RUN apk add tzdata coreutils --no-cache
-
-COPY entrypoint.sh .
-RUN chmod +x ./entrypoint.sh
-
-ENTRYPOINT ["./entrypoint.sh"]
 
 ENV TZ="Europe/London"
 # need the next line as TZ line has no effect
 RUN cp /usr/share/zoneinfo/Europe/London /etc/localtime
 
-# Run the command on container startup
-# CMD cron && tail -f /var/log/cron.log
+COPY entrypoint.sh .
+RUN chmod +x ./entrypoint.sh
+ENTRYPOINT ["./entrypoint.sh"]
+
+CMD ["crond","-f"]                    
