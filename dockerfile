@@ -42,8 +42,8 @@ RUN apk add tzdata coreutils --no-cache
 # RUN touch /var/log/cron.log
 
 #Install Cron
-RUN apt-get update
-RUN apt-get -y install cron
+# RUN apt-get update
+# RUN apt-get -y install cron
 
 ENV TZ="Europe/London"
 # need the next line as TZ line has no effect
