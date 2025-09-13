@@ -50,4 +50,4 @@ ENV TZ="Europe/London"
 RUN cp /usr/share/zoneinfo/Europe/London /etc/localtime
 
 # Run the command on container startup
-CMD cron && tail -f /var/log/cron.log
+# CMD cron && tail -f /var/log/cron.log
