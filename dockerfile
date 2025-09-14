@@ -1,13 +1,12 @@
-
-############################################################################
-#   Docker image to purge out-dated videos on homeserver & all .txt files  #
-#   Requires the following bind mounts in Portainer:                       #
-#   /homepi_home_mju_videos > /home/mju/Videos                             #
-#   /homepi_opt > /opt                                                     #
-#   /homeserver_video_reargarden > /mnt/homeserver_video_reargarden (sync) #
-#   entrypoint.sh calls the purge/startup-script.sh that sets the schedule #
-#   last updated 13/09/2025                                                #
-############################################################################
+##########################################################################
+# Purge image to remove out-dated videos on homeserver & all .txt files  #
+# Requires the following bind mounts in Portainer:                       #
+# /homepi_home_mju_videos > /home/mju/Videos                             #
+# /homepi_opt > /opt                                                     #
+# /homeserver_video_reargarden > /mnt/homeserver_video_reargarden (sync) #
+# entrypoint.sh calls the purge/startup-script.sh that sets the schedule #
+# last updated 14/09/2025                                                #
+##########################################################################
 
 FROM alpine:latest
 
@@ -22,4 +21,3 @@ COPY entrypoint.sh .
 RUN chmod +x ./entrypoint.sh
 ENTRYPOINT ["./entrypoint.sh"]
 
-                   
