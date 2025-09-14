@@ -19,5 +19,5 @@ RUN cp /usr/share/zoneinfo/Europe/London /etc/localtime
 
 COPY entrypoint.sh .
 RUN chmod +x ./entrypoint.sh
-ENTRYPOINT ["./entrypoint.sh"]
+ENTRYPOINT ["/homepi_opt/purge/startup.sh"]
 
