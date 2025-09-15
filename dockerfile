@@ -1,12 +1,8 @@
-##########################################################################
-# Purge image to remove out-dated videos on homeserver & all .txt files  #
-# Requires the following bind mounts in Portainer:                       #
-# /homepi_home_mju_videos > /home/mju/Videos                             #
-# /homepi_opt > /opt                                                     #
-# /homeserver_video_reargarden > /mnt/homeserver_video_reargarden (sync) #
-# calls the purge/startup-script.sh that sets the schedule               #
-# last updated 15/09/2025                                                #
-##########################################################################
+###########################################################
+# Removes out-dated videos on homeserver & all .txt files #
+# more information in ReadMe                              #
+# last updated 15/09/2025                                 #
+###########################################################
 
 FROM alpine:latest
 
